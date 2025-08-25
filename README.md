@@ -139,6 +139,9 @@ Training Loss Vs Iteration Plot
 
 
 Best Fit line plot
+
+
+
 <img width="808" height="629" alt="Screenshot 2025-08-25 184911" src="https://github.com/user-attachments/assets/b608dc32-bccd-490a-9fa9-455bd91cd26b" />
 
 
