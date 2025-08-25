@@ -44,8 +44,7 @@ Use the trained model to predict  for a new input value .
 
 ### Register Number: 212223240160
 
-```python
-import torch
+```import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 
@@ -75,7 +74,7 @@ model=Model(1,1)
 initial_weight=model.linear.weight.item()
 initial_bias=model.linear.bias.item()
 
-print("\nName: Meyyappan")
+print("\nName: SRISHANTH J")
 print("Register No: (b012)")
 print(f"Initial weight: {initial_weight:.8f}, Initial bias: {initial_bias:.8f}\n")
 
@@ -107,8 +106,8 @@ plt.show()
 
 final_weight=model.linear.weight.item()
 final_bias=model.linear.bias.item()
-print("\nName:Meyyappan T")
-print("Register No:212223240086")
+print("\nName:SRISHANTH J")
+print("Register No: 212223240160")
 print(f"Final weight: {final_weight:.8f}, Final bias: {final_bias:.8f}")
 
 x1=torch.tensor([X.min().item(),X.max().item()])
@@ -124,28 +123,29 @@ plt.show()
 
 x_new = torch.tensor([[120.0]])
 y_new_pred=model(x_new).item()
-print("\nName: Meyyappan T")
+print("\nName: SRISHANTH J")
 print("Register No: (b012)")
 print(f"Predicted value for x={x_new.item()}: {y_new_pred:.8f}")
 ```
 
 ### Dataset Information
-<img width="712" height="558" alt="image" src="https://github.com/user-attachments/assets/50294c8d-f34f-4dcc-a5ec-b40f8004c93a" />
+<img width="802" height="639" alt="Screenshot 2025-08-25 184625" src="https://github.com/user-attachments/assets/0ba0dcea-e941-46b1-9acc-c80843bdf7e2" />
 
 
 
 ### OUTPUT
 Training Loss Vs Iteration Plot
-<img width="886" height="557" alt="Screenshot 2025-08-22 101012" src="https://github.com/user-attachments/assets/83671971-4ad8-4d4c-96a8-1ed3b5901fc8" />
+<img width="803" height="632" alt="Screenshot 2025-08-25 184833" src="https://github.com/user-attachments/assets/bb6ff9a5-6d76-44f3-af5a-7c5c1968a616" />
+
 
 Best Fit line plot
-<img width="733" height="648" alt="image" src="https://github.com/user-attachments/assets/c0ec22cd-a565-4640-8352-0cce405e46cc" />
-
+<img width="808" height="629" alt="Screenshot 2025-08-25 184911" src="https://github.com/user-attachments/assets/b608dc32-bccd-490a-9fa9-455bd91cd26b" />
 
 
 
 ### New Sample Data Prediction
-<img width="442" height="81" alt="image" src="https://github.com/user-attachments/assets/0701fd0b-983b-48fb-8bf7-3638c5293628" />
+
+<img width="480" height="87" alt="Screenshot 2025-08-25 184949" src="https://github.com/user-attachments/assets/39a1314c-b367-437c-a2c1-f3d2690cf4e9" />
 
 
 
