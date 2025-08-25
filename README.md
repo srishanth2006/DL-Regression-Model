@@ -40,32 +40,116 @@ Use the trained model to predict  for a new input value .
 
 ## PROGRAM
 
-### Name:
+### Name: SRISHANTH J
 
-### Register Number:
+### Register Number: 212223240160
 
 ```python
+import torch
+import torch.nn as nn
+import matplotlib.pyplot as plt
+
+torch.manual_seed(71)
+X=torch.linspace(1,50,50).reshape(-1,1)
+e=torch.randint(-8,9,(50,1),dtype=torch.float)
+y=2* X + 1 + e
+
+plt.scatter(X,y,color='red')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Generated data for Linear Regression')
+plt.show()
+
+from logging import logProcesses
 class Model(nn.Module):
-    def __init__(self, in_features, out_features):
+    def __init__(self,in_features,out_features):
         super().__init__()
-        #Include your code here
+        self.linear=nn.Linear(in_features,out_features)
+
+    def forward(self,x):
+        return self.linear(x)
+
+torch.manual_seed(59)
+model=Model(1,1)
+
+initial_weight=model.linear.weight.item()
+initial_bias=model.linear.bias.item()
+
+print("\nName: Meyyappan")
+print("Register No: (b012)")
+print(f"Initial weight: {initial_weight:.8f}, Initial bias: {initial_bias:.8f}\n")
 
 
+loss_function=nn.MSELoss()
+optimizer=torch.optim.SGD(model.parameters(),lr=0.001)
 
-# Initialize the Model, Loss Function, and Optimizer
+epochs=100
+losses=[]
+for epoch in range(1,epochs+1):
+  optimizer.zero_grad()
+  y_pred=model(X)
+  loss=loss_function(y_pred,y)
+  losses.append(loss.item())
+  loss.backward()
+  optimizer.step()
 
+
+  print(f'epoch: {epoch:2}  loss: {loss.item():10.8f}  '
+          f'weight: {model.linear.weight.item():10.8f}  '
+          f'bias: {model.linear.bias.item():10.8f}')
+
+plt.plot(range(epochs),losses,color='blue')
+plt.ylabel('Loss')
+plt.xlabel('Epochs')
+plt.title("Loss Curve")
+plt.show()
+
+
+final_weight=model.linear.weight.item()
+final_bias=model.linear.bias.item()
+print("\nName:Meyyappan T")
+print("Register No:212223240086")
+print(f"Final weight: {final_weight:.8f}, Final bias: {final_bias:.8f}")
+
+x1=torch.tensor([X.min().item(),X.max().item()])
+y1=x1*final_weight+final_bias
+
+plt.scatter(X,y,label="Original Data")
+plt.plot(x1,y1,'r',label="Best-Fit Line")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title("Trained Model: Best-Fit Line")
+plt.legend()
+plt.show()
+
+x_new = torch.tensor([[120.0]])
+y_new_pred=model(x_new).item()
+print("\nName: Meyyappan T")
+print("Register No: (b012)")
+print(f"Predicted value for x={x_new.item()}: {y_new_pred:.8f}")
 ```
 
 ### Dataset Information
-Include screenshot of the generated data
+<img width="712" height="558" alt="image" src="https://github.com/user-attachments/assets/50294c8d-f34f-4dcc-a5ec-b40f8004c93a" />
+
+
 
 ### OUTPUT
 Training Loss Vs Iteration Plot
+<img width="886" height="557" alt="Screenshot 2025-08-22 101012" src="https://github.com/user-attachments/assets/83671971-4ad8-4d4c-96a8-1ed3b5901fc8" />
+
 Best Fit line plot
-Include your plot here
+<img width="733" height="648" alt="image" src="https://github.com/user-attachments/assets/c0ec22cd-a565-4640-8352-0cce405e46cc" />
+
+
+
 
 ### New Sample Data Prediction
-Include your sample input and output here
+<img width="442" height="81" alt="image" src="https://github.com/user-attachments/assets/0701fd0b-983b-48fb-8bf7-3638c5293628" />
+
+
+
+
 
 ## RESULT
 Thus, a neural network regression model was successfully developed and trained using PyTorch.
